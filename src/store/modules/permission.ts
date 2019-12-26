@@ -5,7 +5,7 @@ import store from '@/store'
 
 const hasPermission = (roles: string[], route: RouteConfig) => {
   if (route.meta && route.meta.roles) {
-    return roles.some((role) => route.meta.roles.includes(role))
+    return roles.some(role => route.meta.roles.includes(role))
   } else {
     return true
   }
@@ -13,7 +13,7 @@ const hasPermission = (roles: string[], route: RouteConfig) => {
 
 export const filterAsyncRoutes = (routes: RouteConfig[], roles: string[]) => {
   const res: RouteConfig[] = []
-  routes.forEach((route) => {
+  routes.forEach(route => {
     const r = { ...route }
     if (hasPermission(roles, r)) {
       if (r.children) {
@@ -36,7 +36,7 @@ class Permission extends VuexModule implements IPermissionState {
   public dynamicRoutes: RouteConfig[] = []
 
   @Mutation
-  public SET_ROUTES(routes: RouteConfig[]) {
+  private SET_ROUTES(routes: RouteConfig[]) {
     this.routes = constantRoutes.concat(routes)
     this.dynamicRoutes = routes
   }

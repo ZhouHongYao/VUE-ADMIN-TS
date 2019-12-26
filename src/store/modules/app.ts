@@ -26,7 +26,7 @@ class App extends VuexModule implements IAppState {
   public size = getSize() || 'medium'
 
   @Mutation
-  public TOGGLE_SIDEBAR(withoutAnimation: boolean) {
+  private TOGGLE_SIDEBAR(withoutAnimation: boolean) {
     this.sidebar.opened = !this.sidebar.opened
     this.sidebar.withoutAnimation = withoutAnimation
     if (this.sidebar.opened) {
@@ -37,19 +37,19 @@ class App extends VuexModule implements IAppState {
   }
 
   @Mutation
-  public CLOSE_SIDEBAR(withoutAnimation: boolean) {
+  private CLOSE_SIDEBAR(withoutAnimation: boolean) {
     this.sidebar.opened = false
     this.sidebar.withoutAnimation = withoutAnimation
     setSidebarStatus('closed')
   }
 
   @Mutation
-  public TOGGLE_DEVICE(device: DeviceType) {
+  private TOGGLE_DEVICE(device: DeviceType) {
     this.device = device
   }
 
   @Mutation
-  public SET_SIZE(size: string) {
+  private SET_SIZE(size: string) {
     this.size = size
     setSize(this.size)
   }

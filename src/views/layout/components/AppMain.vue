@@ -9,18 +9,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: "AppMain"
+  name: 'AppMain'
 })
 export default class extends Vue {
-//   get cachedViews() {
-//     return this.$store.state.tagsView.cachedViews;
-//   }
+  get cachedViews() {
+    return this.$store.state.tagsView.cachedViews
+  }
 
   get key() {
-    return this.$route.path;
+    return this.$route.path
   }
 }
 </script>

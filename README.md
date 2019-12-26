@@ -1,4 +1,4 @@
-# vue-admin-ts
+# admin-ts
 
 ## Project setup
 ```
